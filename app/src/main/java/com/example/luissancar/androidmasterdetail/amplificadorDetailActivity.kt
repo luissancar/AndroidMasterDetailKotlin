@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.ImageView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_amplificador_detail.*
 
 /**
@@ -49,7 +51,13 @@ class amplificadorDetailActivity : AppCompatActivity() {
                     .add(R.id.amplificador_detail_container, fragment)
                     .commit()
         }
+
+
+
     }
+
+
+
 
     override fun onOptionsItemSelected(item: MenuItem) =
             when (item.itemId) {

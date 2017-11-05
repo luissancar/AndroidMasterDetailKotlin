@@ -79,7 +79,7 @@ class amplificadorListActivity : AppCompatActivity() {
                     val fragment = amplificadorDetailFragment().apply {
                         arguments = Bundle()
                         println(item.id)
-                        arguments.putInt(amplificadorDetailFragment.ARG_ITEM_ID, item.id)
+                        arguments.putString(amplificadorDetailFragment.ARG_ITEM_ID, item.id)
                     }
                     mParentActivity.supportFragmentManager
                             .beginTransaction()
@@ -88,7 +88,14 @@ class amplificadorListActivity : AppCompatActivity() {
                 } else {
                     val intent = Intent(v.context, amplificadorDetailActivity::class.java).apply {
                         putExtra(amplificadorDetailFragment.ARG_ITEM_ID, item.id)
+
+
+
+
+
+
                     }
+
                     v.context.startActivity(intent)
                 }
             }

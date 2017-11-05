@@ -5,10 +5,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import com.example.luissancar.androidmasterdetail.R.id.container
 import com.example.luissancar.androidmasterdetail.amplificador.Amplificador
 import com.example.luissancar.androidmasterdetail.amplificador.AmplificadorContenido
 import com.example.luissancar.androidmasterdetail.dummy.DummyContent
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_amplificador_detail.*
+import kotlinx.android.synthetic.main.activity_amplificador_detail.view.*
+import kotlinx.android.synthetic.main.amplificador_detail.*
 import kotlinx.android.synthetic.main.amplificador_detail.view.*
 import kotlinx.android.synthetic.main.amplificador_list_content.*
 
@@ -41,9 +46,14 @@ class amplificadorDetailFragment : Fragment() {
            // mItem = DummyContent.ITEM_MAP[arguments.getString(ARG_ITEM_ID)]
 
            // mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
-            mItem = amp.getIdAmplificador(arguments.getInt(ARG_ITEM_ID))
+            print(arguments.getInt(ARG_ITEM_ID))
+            mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
             mItem?.let {
-                activity.toolbar_layout?.title = it.urlImagen
+                activity.toolbar_layout?.title = "uno"+it.urlImagen
+                //activity.imageView.loadUrl("https://git-scm.com/figures/18333fig0330-tn.png")
+               // activity.imageView2.loadUrl(it.urlImagen)
+
+
             }
         }
     }
@@ -53,12 +63,19 @@ class amplificadorDetailFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.amplificador_detail, container, false)
 
         // Show the dummy content as text in a TextView.
+        print("ssssss")
         mItem?.let {
             rootView.amplificador_detail.text = it.urlImagen
+           // rootView.imageView.loadUrl("https://git-scm.com/figures/18333fig0330-tn.png")
+            rootView.imageView2.loadUrl(it.urlImagen)
         }
 
         return rootView
     }
+    fun ImageView.loadUrl(url: String) {
+        Picasso.with(context).load(url).into(this)
+    }
+
 
     companion object {
         /**
