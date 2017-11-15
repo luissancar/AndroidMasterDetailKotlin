@@ -28,5 +28,7 @@ class AmplificadorContenido {
         amplificadorList.add(ampli)
         ampli = Amplificador("3","Vox","AC30","http://cdn.tonegeek.com/wp-content/uploads/P1010658.jpg")
         amplificadorList.add(ampli)
+        ampli = Amplificador("4","Mesa","Dual","https://media.sweetwater.com/api/i/q-85__ha-b0862511176177d2__hmac-dab3c92e6d0afce6fcccf93e4d0d2db044b22e2d/images/items/1800/RectDualHD-xlarge.jpg")
+        amplificadorList.add(ampli)
     }
 }

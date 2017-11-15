@@ -8,11 +8,13 @@ import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.luissancar.androidmasterdetail.amplificador.Amplificador
 import com.example.luissancar.androidmasterdetail.amplificador.AmplificadorContenido
 
 import com.example.luissancar.androidmasterdetail.dummy.DummyContent
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_amplificador_list.*
 import kotlinx.android.synthetic.main.amplificador_list_content.view.*
 
@@ -111,13 +113,17 @@ class amplificadorListActivity : AppCompatActivity() {
             val item = mValues[position]
             holder.mIdView.text = item.marca                    //
             holder.mContentView.text = item.modelo              //
+            holder.miImage.loadUrl(item.urlImagen)
+
 
             with(holder.itemView) {
                 tag = item
                 setOnClickListener(mOnClickListener)
             }
         }
-
+        fun ImageView.loadUrl(url: String) {
+            Picasso.with(context).load(url).into(this)
+        }
         override fun getItemCount(): Int {
             return mValues.size
         }
@@ -125,6 +131,7 @@ class amplificadorListActivity : AppCompatActivity() {
         inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
             val mIdView: TextView = mView.id_text
             val mContentView: TextView = mView.content
+            val miImage: ImageView = mView.imageView3
         }
     }
 }
