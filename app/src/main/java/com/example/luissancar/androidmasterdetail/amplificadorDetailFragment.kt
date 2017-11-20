@@ -46,6 +46,7 @@ class amplificadorDetailFragment : Fragment() {
            // mItem = DummyContent.ITEM_MAP[arguments.getString(ARG_ITEM_ID)]
 
            // mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
+            activity.imageViewGeneral.loadUrl("http://vinculando.org/wp-content/uploads/imagenes-con-energia-positiva.jpg")
             print(arguments.getInt(ARG_ITEM_ID))
             mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
             mItem?.let {

@@ -116,6 +116,7 @@ class amplificadorListActivity : AppCompatActivity() {
             holder.miImage.loadUrl(item.urlImagen)
 
 
+
             with(holder.itemView) {
                 tag = item
                 setOnClickListener(mOnClickListener)
