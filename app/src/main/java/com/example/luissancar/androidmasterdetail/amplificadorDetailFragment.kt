@@ -38,7 +38,7 @@ class amplificadorDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var amp = AmplificadorContenido()
-        amp.loadAmplificadorList()
+        amp.loadAmplificadorList()   // cargamos lista amplificadores
         if (arguments.containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
@@ -47,8 +47,8 @@ class amplificadorDetailFragment : Fragment() {
 
            // mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
             activity.imageViewGeneral.loadUrl("http://vinculando.org/wp-content/uploads/imagenes-con-energia-positiva.jpg")
-            print(arguments.getInt(ARG_ITEM_ID))
-            mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))
+            print(arguments.getString(ARG_ITEM_ID))
+            mItem = amp.getIdAmplificador(arguments.getString(ARG_ITEM_ID))    // cargamos el amplificador seleccionado
             mItem?.let {
                 activity.toolbar_layout?.title = "uno"+it.urlImagen
                 //activity.imageView.loadUrl("https://git-scm.com/figures/18333fig0330-tn.png")
@@ -64,7 +64,9 @@ class amplificadorDetailFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.amplificador_detail, container, false)
 
         // Show the dummy content as text in a TextView.
-        print("ssssss")
+
+        // cargamos datos detail
+
         mItem?.let {
             rootView.amplificador_detail.text = it.urlImagen
            // rootView.imageView.loadUrl("https://git-scm.com/figures/18333fig0330-tn.png")
